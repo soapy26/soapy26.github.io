@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PINKSHOPPEE</title>
+    <style>
+
+        .sparkle-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            opacity: 0;
+            animation: sparkle 2s infinite;
+            pointer-events: none;
+            border-radius: 50%;
+            transform-origin: center;
+
+            top: calc(var(--top-pos) * 1%);
+            left: calc(var(--left-pos) * 1%);
+            }
+
+            @keyframes sparkle {
+            0%, 100% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .product img {
+            max-width: 60%;
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            justify-content: center; /* Center align the slider horizontally */
+            align-items: center;
+        }
+
+        .slider img {
+            width: 30%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <h1>pinKSHOPEEE</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="sparkle-container">
+        <div class="sparkle"><img src="sparkle.png" alt="sparkle"></div>
+        <div class="sparkle"><img src="sparkle.png" alt="sparkle"></div>
+        <div class="sparkle"><img src="sparkle.png" alt="sparkle"></div>
+        <!-- You can add more sparkle divs here as needed -->
+    </div>
+
+    <main>
+        <section class="slider-container" id="imageSlider">
+            <div class="slider">
+                <img src="data:image/jpeg;base64,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" alt="Uniqlo T">
+                <img src="data:image/jpeg;base64,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" alt="PINK DIOR T">
+                <img src="chipinkdress.png" alt="chipinkdress">
+                <img src="chipinkhair.jpg" alt="chipinkhair">
+                <img src="chipinknwhiteshirt.png" alt="chipinknwhiteshirt">
+            </div>
+        </section>
+
+        <section class="product-list">
+            <div class="product">
+                <img src="data:image/jpeg;base64,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" alt="Uniqlo T">
+                <h2>uniqlo t</h2>
+                <p>sg boy's uniform</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="data:image/jpeg;base64,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" alt="PINK DIOR T">
+                <h2>PINK DIOR T</h2>
+                <p>if ure feeling fANCY</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="chipinkdress.png" alt="chipinkdress">
+                <h2>pink dress</h2>
+                <p>wear this pink dress to inc ur chances of getting a bf!</p>
+                <button>sold out</button>
+            </div>
+            <div class="product">
+                <img src="chipinkhair.jpg" alt="chipinkhair">
+                <h2>pink hair</h2>
+                <p>get this if u wan to be swag too</p>
+                <button>sold out</button>
+            </div>
+            <div class="product">
+                <img src="chipinknwhiteshirt.png" alt="chipinknwhiteshirt">
+                <h2>pink and white shirt</h2>
+                <p>get the trendiest drip</p>
+                <button>Add to Cart</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="sparkle-container">
+        <div class="sparkle"><img src="sparkle.png" alt="sparkle"></div>
+        <div class="sparkle"><img src="sparkle.png" alt="sparkle"></div>
+        <div class="sparkle"><img src="sparkle.png" alt="sparkle"></div>
+        <!-- You can add more sparkle divs here as needed -->
+    </div>
+
+    <footer>
+        <p>&copy; 2023 PinkShopeee - Your Online Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Get the slider element
+        const slider = document.getElementById("imageSlider");
+    
+        // Get all the images inside the slider
+        const images = slider.getElementsByTagName("img");
+    
+        // Set the index of the currently displayed image
+        let currentIndex = 0;
+    
+        // Function to show the next image in the slider
+        function showNextImage() {
+            // Hide the current image
+            images[currentIndex].style.display = "none";
+    
+            // Increment the index
+            currentIndex = (currentIndex + 1) % images.length;
+    
+            // Display the next image
+            images[currentIndex].style.display = "block";
+        }
+    
+        // Automatically switch images every 3 seconds
+        setInterval(showNextImage, 3000);
+    </script>
+    
+
+    
+
+</body>
+</html>
